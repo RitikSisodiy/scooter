@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block body %}
+        <!--Header End-->
+        <!-- Content Section Start -->
+        <div class="main-container">
+            <!-- About Section Start -->
+            <section id="contact" class="contact-section" style="padding-top: 150px;">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-wrapper">
+                                <h2 class="large-heading text-uppercase">Address</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 offset-sm-1">
+                        <div class="row">
+                        {% for ad in add %}
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3>Address {{forloop.counter}}</h3>
+                                        <p>Name: {{ad.name}}</p>
+                                        <p>Locality: {{ad.locality}}</p>
+                                        <p>City: {{ad.city}}</p>
+                                        <p>ZipCode: {{ad.zipcode}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Content Section End -->
+                <!--footer Start-->
+{% endblock %}

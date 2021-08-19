@@ -1,0 +1,27 @@
+{% extends 'basic.html' %}
+{% block css %}
+    <style type="text/css">
+        .plans {
+            background-color: green !important;
+        }
+
+        .plans:hover {
+            background-color: orange !important;
+        }
+    </style>
+{% endblock %}
+{% block body %}        <!--Header End-->
+        <!--Product Details Start-->
+        <div class="container py-24">
+		<h2>Payment status regarding your order Id {{response.ORDERID}}</h2>
+        {% if response.RESPCODE == '01' %}
+        ORDER SUCCESS
+        <h3> ThankYou For Your Purchase</h3>
+        {% else %}
+        ORDER FAILURE
+        {{response.RESPMSG}}
+        {% endif%}
+        </div>
+        <!--Product Details End-->
+        <!--footer Start-->
+{% endblock %}

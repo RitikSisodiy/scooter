@@ -1,0 +1,64 @@
+{% extends 'userbasic.html' %}
+
+{% block udbody %}
+{% if products %}
+<div class="tab-content">
+<div class="tab-pane active" role="tabpanel">
+    <div class="message-show margin-top-10">
+    </div>
+    <div class="dashboard-form-wrapper">
+        
+        <div class="table-responsive mt-3">
+            <table class="table table-striped" CELLSPACING=0>
+                <thead>
+                    <tr>
+                        <th scope="col">Your Bookings</th>
+                        <th scope="col">Payment Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td >
+                            <div class="user-dahsboard-order-info-wrap">
+                                 <h5 class="title">
+                                    <a
+                                        href="{% url 'productdetails' product.product.id %}">{{product.product.name}}({{product.product.color}})</a>
+                                </h5>
+                                <small class="d-block"><strong>Order ID:</strong>
+                                    #{{product.order_id}}</small>
+                                <small class="d-block"><strong>Amount:</strong>
+                                    Rs :{{product.product.price}}</small>
+                                <small class="d-block"><strong>Payment
+                                        Gateway:</strong> Paytm</small>
+                                <small class="d-block"><strong>Booking
+                                        Date:</strong> {{product.order_date|date}}</small>
+                                <small class="d-block"><strong>Booking
+                                        Time:</strong> {{product.order_date|time}}</small>
+                                <small class="d-block"><strong>Booking
+                                        Status:</strong> {{product.status}}</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-dahsboard-order-info-wrap">
+                                <small class="d-block">
+                                    <span
+                                        class="alert alert-{% if product.status == 'Accepted' %}success{% else %}warning{% endif %} text-capitalize alert-sm alert-small d-inline-block">{{product.status}}</span>
+                                </small>
+                            </div>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="blog-pagination">
+
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-warning">No Product Order Found</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .divider-text {
+position: relative;
+text-align: center;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+.divider-text span {
+padding: 7px;
+font-size: 12px;
+position: relative;   
+z-index: 2;
+}
+.divider-text:after {
+content: "";
+position: absolute;
+width: 100%;
+border-bottom: 1px solid #ddd;
+top: 55%;
+left: 0;
+z-index: 1;
+}
+
+.btn-facebook {
+background-color: #405D9D;
+color: #fff;
+}
+.btn-twitter {
+background-color: #42AEEC;
+color: #fff;
+}
+    </style>
+{% endblock %}
+{% block body %}        
+        <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto" style="margin-top: 80px;">
+        	{% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <strong>Message: </strong> {{ message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span
+                        </button>
+                    </div>
+             {% endfor %}
+            <div class="card card0 border-0">
+                <div class="row d-flex">
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                        <img src="{% static 'images/h2.jpg' %}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-6 my-10   px-5 px-lg-5">
+						 <form action="" method="POST">
+                          {% csrf_token %}
+                          <div class="flex mb-4">
+                          <div class="w-1/2 ml-1">
+                                  <label class="block text-grey-darker text-sm font-bold mb-2" for="username">Username</label>
+                                  <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="username" type="text" name="username" placeholder="username" required>
+                              </div>
+                              <div class="w-1/2 mr-1 mx-2">
+                                  <label class="block text-grey-darker text-sm font-bold mb-2" for="first_name">First Name</label>
+                                  <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="first_name" type="text" name="first_name" placeholder="Your first name" required>
+                              </div>
+                              <div class="w-1/2">
+                                  <label class="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label>
+                                  <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="last_name" type="text" name="last_name" placeholder="Your last name" required>
+                              </div>
+                          </div>
+                          <div class="mb-4">
+                              <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
+                              <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="email" name="email" placeholder="Your email address" required>
+                          </div>
+                          <div class="mb-4">
+                              <label class="block text-grey-darker text-sm font-bold mb-2" for="password">Password</label>
+                              <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="password" type="password" name="password" placeholder="Your secure password" required >
+                              <p class="text-grey text-xs mt-1">At least 6 characters</p>
+                          </div>
+                                  <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">SignUp</button> </div>
+
+                        <div class="row mb-4 px-3"> <small class="font-weight-bold">Have an account? .<a class="text-danger" href="{% url 'userlogin' %}"	>&nbsp SignIn</a></small> </div>
+                          </form>
+                      </div>
+                </div>
+            </div>
+          
+        </div>
+
+
+
+
+        <!--container end.//-->
+    
+
+
+        <!-- Content Section End -->   
+        <!--footer Start-->   
+{% endblock %}

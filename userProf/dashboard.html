@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental</title>
+    <link href="css/usr.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css?_cacheOverride=1628187054503">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+</head>
+
+<body>
+    <div class="header" style="background: #1ebeb6;">
+        <div class="top-nav container">
+
+            <ul>
+                <li><a href="login.html" style="--color:#f0ad4e">Login</a></li>
+                <li><a href="registration.html" style="--color:#71d109">Signup</a></li>
+                <li><a href="upload_prescription.html" style="--color:#01b4f1">Upload Precription</a></li>
+                <li><a href="book_appointment.html" style="--color:#4cae4c">Book Appointment</a></li>
+            </ul>
+        </div>
+        <div class="nav-bar">
+            <div class="logo col-lg-2 col-5">
+                <a href="index.html"><img src="images/logo.png" class="img-fluid" alt=""></a>
+            </div>
+            <nav>
+                <ul class="">
+                    <li class="sub-menu "><a class="link" href="#">About US</a>
+                        <ul class="">
+                            <li><a href="general_info.html">Genreal Info</a></li>
+                            <li><a href="dr_profile.html">Doctor's Profile</a></li>
+                            <li><a href="career.html">Careers</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu"><a class="link" href="#">Popular Packages</a>
+                        <ul class="big-sub-menu" style=" border: 2px solid #000; border-radius: 4px;">
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <li><a href="pregnancy-test.html">Pregnancy Checkup</a></li>
+                                    <li><a href="pregnancy-test.html">Arthritis Test</a></li>
+                                    <li><a href="pregnancy-test.html">Thyroid Test</a></li>
+                                    <li><a href="pregnancy-test.html">HbA1c Test</a></li>
+                                    <li><a href="pregnancy-test.html">PSA Test</a></li>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <li><a href="pregnancy-test.html">Uric Acid Test</a></li>
+                                    <li><a href="pregnancy-test.html">Pancreatitis Test</a></li>
+                                    <li><a href="pregnancy-test.html">STD Test</a></li>
+                                    <li><a href="pregnancy-test.html">Ca125 Test</a></li>
+                                    <li><a href="pregnancy-test.html">Vitamin B12 Test</a></li>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li><a href="contact-us.html">Conatct Us</a>
+                    <li class="sub-menu"><a href="#">Services</a>
+                        <ul>
+                            <li><a href="services.html">Single Service</a></li>
+                            <li><a href="solution.html">Solutions</a></li>
+                            <!-- <li><a href="book_appointment.html">Book Appointment</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="news.html">News</a>
+                    </li>
+                    <!-- <li><a style="background: #115278; border-radius: 40px;" href="login.html"><i
+                            ></i>Login</a></li> -->
+                    <!--   <li><a style="background: #115278; border-radius: 40px; margin-right: 4px;" href="book_appointment.html"><i
+                                class="fa fa-phone"></i>Book Appointment</a></li> -->
+                    <div class="bottom-nav container">
+                        <ul>
+                            <li><a href="login.html" style="--color:#f0ad4e">Login</a></li>
+                            <li><a href="registration.html" style="--color:#71d109">Signup</a></li>
+                            <li><a href="upload_prescription.html" style="--color:#01b4f1">Upload
+                                  Precription</a></li>
+                            <li><a href="book_appointment.html" style="--color:#4cae4c">Book Appointment</a>
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="toggle-menu"><i class="fa fa-bars"></i></div>
+        </div>
+        <br><br><br>
+    </div>
+  <div class="dashboard">
+   
+    <body data-new-gr-c-s-check-loaded="14.1024.0" data-gr-ext-installed="">
+        <!-- preloader area start -->
+        
+        <!-- preloader area end -->
+    
+        <!-- Breadcrumb Area -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb-inner">
+                            <h2 class="page-title"> User Dashboard
+                            </h2>
+                            <ul class="page-list">
+                                <li><a href="http://foundation.cyberflax.com/sequael">Home</a>/</li>
+                                <li> User Dashboard
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="login-page-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="user-dashboard-wrapper">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="mobile_nav">
+                                    <i class="fa fa-cogs"></i>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  active "
+                                        href="#">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link "
+                                        href="/product-orders">Product
+                                        Orders</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link "
+                                        href="/product-order-track">Track
+                                        Your Order</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link "
+                                        href="/appointment-prescription">Upload
+                                        Prescription </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link "
+                                        href="/appointment-booking">Booked
+                                        Doctors</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  "
+                                        href="/edit-profile">Edit
+                                        Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  "
+                                        href="/change-password">Change
+                                        Password</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://foundation.cyberflax.com/sequael/logout" onclick="event.preventDefault();
+                                        jQuery('#userlogout-form-submit-btn').trigger('click');">
+                                        Logout
+                                    </a>
+                                    <form id="userlogout-form" action="http://foundation.cyberflax.com/sequael/logout"
+                                        method="POST" class="d-none">
+                                        <input type="hidden" name="_token" value="zSWQaNluOYPnebIZhLzIkjYadtvAbNtoVbs2QEyy">
+                                        <input type="submit" value="dd" id="userlogout-form-submit-btn" class="d- none">
+                                    </form>
+                                </li>
+                            </ul>
+                            <div class="tab-content" style="width: 100%;">
+                                <div class="tab-pane active" role="tabpanel">
+                                    <div class="message-show margin-top-10">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="user-dashboard-card">
+                                                <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                                                <div class="content">
+                                                    <h4 class="title">Product Order</h4>
+                                                    <span class="number">5</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="user-dashboard-card style-01">
+                                                <div class="icon"><i class="fa fa-calendar"></i></div>
+                                                <div class="content">
+                                                    <h4 class="title">Doctors Booking</h4>
+                                                    <span class="number">13</span>
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="basicModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Get Free Call Now</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+    
+                    </div>
+                    <form action="http://foundation.cyberflax.com/sequael/contactdetails" method="post">
+                        <input type="hidden" name="_token" value="zSWQaNluOYPnebIZhLzIkjYadtvAbNtoVbs2QEyy">
+                        <div class="modal-body">
+                            <input style="margin-bottom: 20px;height: 50px;" value="" name="name" class="form-control"
+                                placeholder="Enter Your Name. *" required="">
+                            <input style="margin-bottom: 20px;height: 50px;" value="" name="email" class="form-control"
+                                placeholder="Enter Your Email *" required="">
+                            <input style="margin-bottom: 20px;height: 50px;" name="mobile" type="text" value=""
+                                class="form-control" placeholder="Enter Mobile*" required="" autocomplete="off"
+                                autofocus="">
+                            <textarea rows="4" class="form-control" name="address"
+                                placeholder="Enter Your Address"></textarea>
+    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" style="padding: 12px 29px;border-radius: 20px;"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit" style="position: initial;" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+    
+    
+    
+        <img style="background: #1ebeb6;"
+            src="https://foundation.cyberflax.com/sequael/assets/uploads/media-uploader/bgn-footer-top1626708365.png"
+            alt="">
+        <!-- footer area start -->
+        <foote>
+    
+            <div class="footer" style="background: #1ebeb6; padding-top: 42px;">
+                <div class="container">
+    
+    
+                    <div class="row">
+                        <div class="col-lg-3 col-8"> <a href="https://foundation.cyberflax.com/sequael " class="logo"
+                                style=" width: 175px;">
+                                <img src="https://foundation.cyberflax.com/sequael/assets/uploads/media-uploader/logo1626597048.png"
+                                    alt="">
+                            </a></div>
+                        <div class="col-lg-9 col-8"></div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-12 contact" style="color: #fff;">
+                            <p>We are a friendly team of dentists, hygienists and receptionists who work together to ensure
+                                that
+                                you receive the best treatment you require.</p>
+                            <h6 style="color: #115278; font-family: 'Playfair Display', serif;">24/7 Emergency Phone</h6>
+                            <i class="fa fa-phone" style="color: #115278;"></i><span> 415-205-5551</span><br>
+                            <i class="fa fa-phone" style="color: #115278;"></i><span> 415-205-5501</span>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 about" style="color: #fff; font-size: 14px;">
+                            <h6>About DentiCare</h6>
+                            Our Dental Team <br>
+                            Our Awards <br>
+                            Dental Services <br>
+                            Pricing &amp; Pricelist <br>
+                            Our Solutions <br>
+                            Clients &amp; Testimonials <br>
+                        </div>
+                        <div class="text-white col-lg-3 col-sm-12 awards">
+                            <h6>About Services</h6>
+                            Service <br>
+                            Solutions <br>
+                            Book Appointment <br>
+                        </div>
+                        <div class="working-hours col-lg-3 col-sm-12">
+                            <h6>Working Hours</h6>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="color: #fff;">Monday</td>
+                                        <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #fff;">Tuesday</td>
+                                        <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #fff;">Wednesday</td>
+                                        <td style="color: #fff; opacity: 70%;">8AM - 6:30PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #fff;">Thrusday</td>
+                                        <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #fff;">Friday</td>
+                                        <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #fff;">Saturady</td>
+                                        <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #fff;">Sunday</td>
+                                        <td style="color: #fff; opacity: 70%;">Closed
+                                            <!--7d-->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="last pb-5" style="display: flex; justify-content: space-between;">
+                        <ul class="footer-nav" style="display: inline-flex; list-style: none;">
+                            <li><a href="general_info.html"> About Us</a></li>
+                            <li><a href="services.html"> Services</a></li>
+                            <li><a href="process.html"> Pages</a></li>
+                            <li><a href="portfolio.html"> Portfolio</a></li>
+                            <li><a href="news.html"> News</a></li>
+                            <li><a href="shop.html"> Shop</a></li>
+    
+                        </ul>
+                        <div class="left-contnet">
+                            <div class="social-link">
+                                <ul>
+                                    <li><a style="background: #021257;padding: 10px 12px;border-radius: 6px;" href="#"><i
+                                                class="fab fa-facebook-f"></i></a></li>
+                                    <li><a style="background: #021257;padding: 10px 12px;border-radius: 6px;" href="#"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                    <li><a style="background: #021257;padding: 10px 12px;border-radius: 6px;" href="#"><i
+                                                class="flaticon-twitter"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- footer area end -->
+    
+            <!-- back to top area start -->
+            <div class="back-to-top">
+                <span class="back-top"><i class="fa fa-angle-up"></i></span>
+            </div>
+            <!-- back to top area end -->
+    
+            <!-- jquery -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/common/js/jquery-3.6.0.min.js"></script>
+            <script src="http://foundation.cyberflax.com/sequael/assets/common/js/jquery-migrate-3.3.2.min.js"></script>
+            <!-- popup -->
+            <!-- bootstrap -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/bootstrap.min.js"></script>
+            <!-- magnific popup -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/jquery.magnific-popup.js"></script>
+            <!-- wow -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/wow.min.js"></script>
+            <!-- owl carousel -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/owl.carousel.min.js"></script>
+            <!-- waypoint -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/waypoints.min.js"></script>
+            <!-- counterup -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/jquery.counterup.min.js"></script>
+            <!-- imageloaded -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/imagesloaded.pkgd.min.js"></script>
+            <!-- isotope -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/isotope.pkgd.min.js"></script>
+            <!-- main js -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/main.js"></script>
+            <!-- Progress-Bar -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/jQuery.rProgressbar.min.js"></script>
+            <!-- dynamic js -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/dynamic-script.js"></script>
+            <!-- toastr js -->
+            <script src="http://foundation.cyberflax.com/sequael/assets/common/js/toastr.min.js"></script>
+    
+            <script>
+                (function () {
+                    "use strict";
+    
+                    /**-----------------------------
+                    *  countdown
+                    * ---------------------------*/
+                    var offerTime = $("#offer_time_end").val();
+                    if ($("#mycountdown").length > 0) {
+                        var year = offerTime.substr(0, 4);
+                        var month = offerTime.substr(5, 2);
+                        var day = offerTime.substr(8, 2);
+    
+                        $('#mycountdown').countdown({
+                            year: year,
+                            month: month,
+                            day: day,
+                            labels: true,
+                            labelText: {
+                                'days': "days",
+                                'hours': "hours",
+                                'minutes': "min",
+                                'seconds': "sec",
+                            }
+                        });
+                    }
+    
+    
+                    $(document).on('click', '#product_search_btn', function (e) {
+                        e.preventDefault();
+                        var searchTerms = $('#search_term').val();
+                        $('#search_query').val(searchTerms)
+                        $('#product_hidden_form_submit_button').trigger('click');
+                    });
+                })(jQuery);
+            </script>
+    
+            <script>
+                function getCookie(cname) {
+                    var name = cname + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+                function setCookie(cname, cvalue, exdays) {
+                    var d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    var expires = "expires=" + d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                }
+    
+            </script>
+            <script src="http://foundation.cyberflax.com/sequael/assets/frontend/js/jquery.ihavecookies.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    var delayTime = "5000";
+                    delayTime = delayTime ? delayTime : 4000;
+                    $('body').ihavecookies({
+                        title: "Cookies &amp; Privacy",
+                        message: "Is education residence conveying so so. Suppose shyness say ten behaved morning had. Any unsatiable assistance compliment occasional too reasonably advantages.",
+                        expires: "30",
+                        link: "http://foundation.cyberflax.com/sequael/p/privacy-policy",
+                        delay: delayTime,
+                        moreInfoLabel: "More information",
+                        acceptBtnLabel: "Accept Cookie",
+                        advancedBtnLabel: "Decline Cookie"
+                    });
+                    $('body').on('click', '#gdpr-cookie-close', function (e) {
+                        e.preventDefault();
+                        $(this).parent().remove();
+                    });
+                });
+            </script>
+            <script>
+                (function ($) {
+                    "use strict";
+    
+                    $(document).ready(function () {
+    
+                        $(document).on('click', '.user-dashboard-wrapper > ul .mobile_nav', function (e) {
+                            e.preventDefault();
+                            var el = $(this);
+    
+                            el.parent().toggleClass('show');
+    
+                        });
+    
+                    });
+                })(jQuery);
+            </script>
+            <!-- tawk api key  -->
+    
+    
+    
+        </foote>
+    </body>
+     
+     <footer>
+         <img src="images/bgn-footer-top.png" style="width: 100vw;" alt="">
+         <div class="footer mt-5 container">
+             <div class="col-lg-6 col-8"><img src="images/logo.png" alt=""></div>
+             <hr>
+             <div class="row">
+                 <div class="col-lg-3 col-sm-12 contact" style="color: #fff;">
+                     <p>We are a friendly team of dentists, hygienists and receptionists who work together to ensure that
+                         you receive the best treatment you require.</p>
+                     <h6 style="color: #115278; font-family: 'Playfair Display', serif;">24/7 Emergency Phone</h6>
+                     <i class="fa fa-phone" style="color: #115278;"></i><span> 415-205-5551</span><br>
+                     <i class="fa fa-phone" style="color: #115278;"></i><span> 415-205-5501</span>
+                 </div>
+                 <div class="col-lg-3 col-sm-12 about" style="color: #fff; font-size: 14px;">
+                     <h6>About DentiCare</h6>
+                     Our Dental Team <br>
+                     Our Awards <br>
+                     Dental Services <br>
+                     Pricing & Pricelist <br>
+                     Our Solutions <br>
+                     Clients & Testimonials <br>
+                 </div>
+                 <div class="text-white col-lg-3 col-sm-12 awards">
+                     <h6>About Services</h6>
+                     Service <br>
+                     Solutions <br>
+                     Book Appointment <br>
+                 </div>
+                 <div class="working-hours col-lg-3 col-sm-12">
+                     <h6>Working Hours</h6>
+                     <table>
+                         <tr>
+                             <td style="color: #fff;">Monday</td>
+                             <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                         </tr>
+                         <tr>
+                             <td style="color: #fff;">Tuesday</td>
+                             <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                         </tr>
+                         <tr>
+                             <td style="color: #fff;">Wednesday</td>
+                             <td style="color: #fff; opacity: 70%;">8AM - 6:30PM</td>
+                         </tr>
+                         <tr>
+                             <td style="color: #fff;">Thrusday</td>
+                             <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                         </tr>
+                         <tr>
+                             <td style="color: #fff;">Friday</td>
+                             <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                         </tr>
+                         <tr>
+                             <td style="color: #fff;">Saturady</td>
+                             <td style="color: #fff; opacity: 70%;">8AM - 9PM</td>
+                         </tr>
+                         <tr>
+                             <td style="color: #fff;">Sunday</td>
+                             <td style="color: #fff; opacity: 70%;">Closed</7d>
+                         </tr>
+                     </table>
+                 </div>
+             </div>
+             <hr>
+             <div class="last pb-5" style="display: flex; justify-content: space-between;">
+                 <ul class="footer-nav">
+                     <li><a href="general_info.html"> About Us</a></li>
+                     <li><a href="services.html"> Services</a></li>
+                     <li><a href="process.html"> Pages</a></li>
+                     <li><a href="portfolio.html"> Portfolio</a></li>
+                     <li><a href="news.html"> News</a></li>
+                     <li><a href="shop.html"> Shop</a></li>
+                     <li><a href="#"> Back to Top <i class="fa fa-caret-up" aria-hidden="true"></i></li>
+                 </ul>
+                 <ul class="link">
+                     <li><a href="#"></a>
+                         <div class="icon"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a>
+                     </li>
+                     <li><a href="#"></a>
+                         <div class="icon"><i class="fa fa-pinterest-p" aria-hidden="true"></i></div></a>
+                     </li>
+                     <li><a href="#"></a>
+                         <div class="icon"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+                     </li>
+                     <li>
+                         <div class="icon"><i class="fa fa-facebook-f" aria-hidden="true"></i></div>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </footer>
+  </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/index.js"></script>
+   
+</body>
+
+</html>

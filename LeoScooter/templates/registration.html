@@ -1,0 +1,152 @@
+ {% extends 'basic.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .divider-text {
+position: relative;
+text-align: center;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+.divider-text span {
+padding: 7px;
+font-size: 12px;
+position: relative;   
+z-index: 2;
+}
+.divider-text:after {
+content: "";
+position: absolute;
+width: 100%;
+border-bottom: 1px solid #ddd;
+top: 55%;
+left: 0;
+z-index: 1;
+}
+
+.btn-facebook {
+background-color: #405D9D;
+color: #fff;
+}
+.btn-twitter {
+background-color: #42AEEC;
+color: #fff;
+}
+    </style>
+ {% endblock %}   
+{% block body %}
+
+</head>
+<body>
+
+    <!--Main Wrapper Start-->
+    <div class="wrapper" id="top">
+       <!--Header Start -->
+        <header class="main-header menu-absolute transparent light-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 logo">
+                        <a href="index.html" title="Wheels Car">
+                           <img src="{% static 'images/car-dark-logo.png' %}" alt="car" class="regular-logo">
+                            <img src="{% static 'images/car-dark-logo.png' %}" alt="car" class="sticky-logo">
+                        </a>
+                        <div class="menu-icon">
+                            <span class="top"></span>
+                            <span class="middle"></span>
+                            <span class="bottom"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 menu-conainer">
+                        <nav class="site-navigation">
+                            <ul class="main-menu">
+                               <li><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}">About Leo Electric</a></li>
+                                <li><a href="{% url 'hasten' %}">Hasten</a></li>
+                                <li><a href="{% url 'testdrive' %}">Book Test Drive</a></li>
+                                 <!--
+                                <li class="dropdown">
+                                    <a href="#engine">Specials</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Dropdown menu 1</a></li>
+                                        <li><a href="#">Dropdown menu 2</a></li>
+                                        <li><a href="#">Dropdown menu 3</a></li>
+                                        <li><a href="#">Dropdown menu 4</a></li>
+                                    </ul> 
+                                </li>
+                                -->
+                                <li><a href="{% url 'careers' %}">Careers</a></li>
+                                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'profile' %}">{{user.username}}</a></li>
+                                <li><a href="{% url 'cart' %}">Cart</a></li>
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'userlogin' %}">Login</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--Header End-->
+        <!-- Content Section Start -->   
+        
+        <div class="font-sans antialiased bg-grey-lightest">
+            <!-- Top Nav -->
+            <div class="w-full bg-green fixed shadow z-1">
+              <div class="container mx-auto">
+                <div class="w-full flex justify-between items-center py-4 px-8">
+                  <!-- Brand -->
+                  <div class="text-center text-white font-bold">Your Company</div>
+                  <!-- Navigation -->
+                  <div class="items-center hidden sm:flex">
+                    <a href="#" class="text-white hover:text-green-lightest no-underline mx-2 px-2 py-2">Link 1</a>
+                    <a href="#" class="text-white hover:text-green-lightest no-underline mx-2 px-2 py-2">Link 2</a>
+                    <a href="#" class="bg-green-dark hover:bg-green-darker rounded-full text-white no-underline mx-2 px-4 py-2">Link 3</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <!-- Content -->
+                <div class="container">
+                    <div class="row my-3">
+                      <div> class="col-sm-6 offset-sm-3">
+                       <h3>Customer Registration</h3>
+                           <hr>                          
+                     
+                          <form action="" method="POST">
+                          {% csrf_token %}
+                          <div class="form-group mb-3">
+                          {% for fm in form %}
+                          
+                          {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}} </small>
+                          
+                          {% endfor %}
+                          </div>
+                          <input type="submit" value="Submit" class="btn btn-primary">
+                          
+                          <br>
+                          <div class=" text-center text-primary fw-bold"><small> Existing User ? <a href="{% url 'userlogin' %}" class="text-danger"> Login Now</a>  </small>
+                          </div>
+                          {% if form.non_field_errors %}
+                          {% for error in form.non_field_errors %}
+                           <p class="alert alert-danger my-3">{{error}}</P>
+                           {% endfor %}
+                           {% endif %}
+                           </form>
+                           </div>
+                           </div>
+                  
+                 
+
+
+
+        <!--container end.//-->
+    
+
+
+        <!-- Content Section End -->   
+        <!--footer Start-->   
+{% endblock %}

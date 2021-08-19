@@ -1,0 +1,29 @@
+{% extends 'userbasic.html' %}
+
+{% block udbody %}
+<div class="tab-pane active" role="tabpanel">
+<div class="message-show margin-top-10">
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="user-dashboard-card">
+            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+            <div class="content">
+                <h4 class="title">Your Order</h4>
+                <span class="number">{{n_order}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="user-dashboard-card style-01">
+            <div class="icon"><i class="fa fa-calendar"></i></div>
+            <div class="content">
+                <h4 class="title">Test Drive Booking</h4>
+                <span class="number">{{n_tdrive}}</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+{% endblock %}

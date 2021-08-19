@@ -1,0 +1,114 @@
+{% extends 'basic.html' %}
+{% load static %}
+    {% block style %}<link rel="stylesheet" href="{% static 'css/style2.css' %}">{% endblock %}
+
+{% block body %}
+        <div class="dashboard-page">
+
+            <body data-new-gr-c-s-check-loaded="14.1024.0" data-gr-ext-installed="">
+
+                <div class="breadcrumb-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="breadcrumb-inner">
+                                    <h2 class="page-title"> User Dashboard
+                                    </h2>
+                                    <ul class="page-list">
+                                        <li><a href="http://foundation.cyberflax.com/sequael">Home</a>/</li>
+                                        <li> User Dashboard
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="login-page-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="user-dashboard-wrapper">
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        <li class="mobile_nav">
+                                            <i class="fa fa-cogs"></i>
+                                        </li>
+                                        <li class="nav-item"> 
+                                        {% url 'profile' as profile %}
+                                            <a class="nav-link  {% if request.path == profile %}active{% endif %} " href="{{profile}}">Dashboard</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        {% url 'userorders' as userorder %}
+                                            <a class="nav-link {% if request.path == userorder %}active{% endif %} " href="{{userorder}}">Product
+                                                Orders</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link  " href="{% url 'editprofile' %}">Edit
+                                                Profile</a>
+                                        </li>
+                                        {% comment %} <li class="nav-item">
+                                            <a class="nav-link  " href="">Change
+                                                Password</a>
+                                        </li> {% endcomment %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'logout' %}">
+                                                Logout
+                                            </a>
+                                            <form id="userlogout-form"
+                                                action="http://foundation.cyberflax.com/sequael/logout" method="POST"
+                                                class="d-none">
+                                                <input type="hidden" name="_token"
+                                                    value="zSWQaNluOYPnebIZhLzIkjYadtvAbNtoVbs2QEyy">
+                                                <input type="submit" value="dd" id="userlogout-form-submit-btn"
+                                                    class="d- none">
+                                            </form>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" style="width: 100%; overflow:auto; max-height:60vh;">
+                                        {% block udbody %}{% endblock %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div id="basicModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Get Free Call Now</h4>
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+
+                            </div>
+                            <form action="http://foundation.cyberflax.com/sequael/contactdetails" method="post">
+                                <input type="hidden" name="_token" value="zSWQaNluOYPnebIZhLzIkjYadtvAbNtoVbs2QEyy">
+                                <div class="modal-body">
+                                    <input style="margin-bottom: 20px;height: 50px;" value="" name="name"
+                                        class="form-control" placeholder="Enter Your Name. *" required="">
+                                    <input style="margin-bottom: 20px;height: 50px;" value="" name="email"
+                                        class="form-control" placeholder="Enter Your Email *" required="">
+                                    <input style="margin-bottom: 20px;height: 50px;" name="mobile" type="text" value=""
+                                        class="form-control" placeholder="Enter Mobile*" required="" autocomplete="off"
+                                        autofocus="">
+                                    <textarea rows="4" class="form-control" name="address"
+                                        placeholder="Enter Your Address"></textarea>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default"
+                                        style="padding: 12px 29px;border-radius: 20px;"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="submit" style="position: initial;"
+                                        class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                {% endblock %}  

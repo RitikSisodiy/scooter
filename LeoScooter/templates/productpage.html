@@ -1,0 +1,45 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% load customfilter %}
+{% block body %}
+<div class="main-container container" style="margin-top:80px">
+            <div class="row">
+                {% for product in products %}
+                 <div class="col-md-4">
+                    <div class="product-card">
+                                    <div class="shadow-2xl flex flex-col max-w-md bg-white m-3 px-6 py-4 rounded-xl space-y-5">
+                                    <div class="image-detail">
+                                    <img class="w-full rounded-md" onclick="demo(this)" id="{{product.id}}" src="/media/{{product.image}}" style="height: 200px; width: 100%; object-fit: cover;" height="252" width="154" alt="motivation" />
+                                    </div>
+                                    <h5 class="text-left font-serif font-bold text-gray-900">
+                                    <strong class="text-dark" >{{product.name}}</strong><span class="text-sm text-dark">({{product.color}})</span></h5>
+                                    <p class="text-center leading-relaxed text-dark">
+                                    {{product.description}}
+                                    </p>
+                                    <div class="price mb-2 ">
+                                        <span class="mr-3 mb-4 font-bold "><span class="text-dark" style="font-size: x-large;"><i class="fas fa-rupee-sign text-dark" style="font-size: 21px;"></i>{{product.price}}</span> &nbsp; <strike class="text-dark" style="opacity: 0.5;"><i class="fas fa-rupee-sign text-dark" style="font-size: 14px;"></i>{{product.ActualPrice}}</strike></span>
+                            
+                                        <br><span style="color: green; font-weight: bold; font-style: italic;">{{ product.ActualPrice|cut:product.price }}% Off</span>
+                                      </div>
+                                    <span class="text-left fa fa-star " style="color: goldenrod;">0</span>
+                                    <!-- <a href="{% url 'productdetails' product.id %}"><button style="width: 250px;"
+                                    class="py-15 bg-gray-900 rounded-md text-sm">More Details</button></a>
+                                    <form action="/add_to_cart">
+                                    <input type="hidden" name="prod_id" value={{product.id}}>
+                                    <button type="submit" style="width: 250px;" class="py-15 bg-gray-900 rounded-md text-sm">Add to Cart</button>
+                                    </form> -->
+                                    <div class="row col-12">
+                                        <div class="col-md-6 my-1 text-dark"><button type="submit" onclick="window.location.href='{% url 'productdetails' product.id %}'"  style="padding: 0px; width: 113%; font-size: 14px;" class="py-15 bg-gray-900 rounded-md text-sm">More Details</button></div>
+                                        <div class="col-md-6 my-1 text-dark">
+                                            <form action="/add_to_cart">
+                                                <input type="hidden"  name="prod_id"  value={{product.id}}>
+                                                <button type="submit"  style="padding: 0px; width: 113%; font-size: 14px;" class="py-15 bg-gray-900 rounded-md text-sm">Add to Cart</button>
+                                                </form></div>
+                                    </div>
+                                    </div>
+                                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
