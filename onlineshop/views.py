@@ -1,3 +1,4 @@
+from django.db.models.fields import NOT_PROVIDED
 from LeoScooter.settings import SECRET_KEY
 from django import views
 from django.shortcuts import render, redirect
@@ -13,7 +14,7 @@ from django.utils.html import strip_tags
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
-from . forms import CustomerProfileForm, CustomerRegistrationForm
+from . forms import *
 from django.views.decorators.csrf import csrf_exempt
 from paytm import Checksum
 import json
@@ -79,38 +80,34 @@ def productdetails(request,id):
     return render(request,'ProductDetails.html',)
 
 def register(request):
+    form = CustomerRegistrationForm()
+
     if request.method == 'POST':
-        username = request.POST['username']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password = request.POST['password']
 
-        if User.objects.filter(username = username).exists():
-            messages.error(request, "This username is already taken")
-            return redirect('register')
+        # if User.objects.filter(username = username).exists():
+        #     messages.error(request, "This username is already taken")
+        #     return redirect('register')
 
-        if User.objects.filter(email=email).exists():
-            messages.error(request,"email is already in use")
-            return redirect('register')
+        # if User.objects.filter(email=email).exists():
+        #     messages.error(request,"email is already in use")
+        #     return redirect('register')
 
-        if len(username) > 10:
-            messages.error(request,"username must be under 10 characters")
-            return redirect('register')
+        # if len(username) > 10:
+        #     messages.error(request,"username must be under 10 characters")
+        #     return redirect('register')
 
-        if not username.isalnum():
-            messages.error(request,"username should contain letters and numbers only")
-            return redirect('register')
-
-        myuser = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password,email=email)
-        myuser.save()
+        # if not username.isalnum():
+        #     messages.error(request,"username should contain letters and numbers only")
+        #     return redirect('register')
+        form = CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
         # cls='p-3 mb-2 bg-success text-white' 
         # msg='yours account is created succesfully'
         # return render(request,'user_login.html',{'cls':cls, 'msg':msg})
-        messages.success(request,'your account is created successfully')
-        return redirect('userlogin')
-    
-    return render(request,'Register.html')
+            messages.success(request,'your account is created successfully')
+            return redirect('userlogin')
+    return render(request,'Register.html',{'form':form,'form1':form1})
 
 # class CustomerRegistrationView(View):
 #     def get(self, request):
@@ -158,24 +155,56 @@ class profileview(View):
         return render(request,'userdashboard.html',res)
 
     def post(self, request):
-        form = CustomerProfileForm(request.POST)
-        if form.is_valid():
+        if  profile.objects.filter(user=request.user.id).exists():
+            form = CustomerProfileForm(request.POST,instance=profile.objects.filter(user=request.user.id)[0])
+        else:
+            form = CustomerProfileForm(request.POST)
+        form1 = CustomeruserForm(request.POST,instance=request.user)
+        if form.is_valid() and form1.is_valid:
             form.save()
+            form1.save()
             messages.success(request,'Profile Updated Successfully')
             if request.GET.get('next') is not None and request.GET.get('next') !='':
                 return redirect(request.GET.get('next'))
         return redirect('editprofile')
     def vieworders(request):
         res = {}
-        res['products'] = OrderPlaced.objects.filter(user=request.user.id)
+        res['products'] = OrderPlaced.objects.filter(user=request.user.id).order_by('-order_date')
         return render(request,'userproduct.html',res)
     def editprofile(request):
         res={}
         ins = Customer.objects.filter(user=request.user.id)
         ins = ins[0] if ins.exists() else None
         print(ins)
-        res['form'] = CustomerProfileForm(instance=ins,initial={'user':request.user})
+        res['form1'] = CustomeruserForm(instance = request.user)
+        if  profile.objects.filter(user=request.user.id).exists():
+            res['form'] = CustomerProfileForm(instance=profile.objects.filter(user=request.user.id)[0])
+        else:
+            res['form'] = CustomerProfileForm(initial={'user':request.user})
         return render(request,'usereditprofile.html',res)
+    def editpass(request):
+        res = {}
+        if request.method == 'POST':
+            opass = request.POST.get('old_password')
+            password = request.POST.get('password')
+            password_confirmation = request.POST.get('password_confirmation')
+            user = authenticate(username=request.user.username, password=opass)
+            print(user)
+            if password == password_confirmation and password is not None and user is not None:
+                user = User.objects.get(id= request.user.id)
+                user.set_password(password)
+                user.save()
+                user = authenticate(username=request.user.username, password=password)
+                login(request,user)
+                messages.success(request,"Your password is changed Successfully")
+                return redirect('editpass')
+            if password != password_confirmation:
+                messages.error(request,"Password and confirm password is not Matched")
+            if user is None:
+                messages.error(request,"Please cheack your password!")
+            return redirect('editpass')
+            
+        return render(request,'userchangepass.html',res)
 def address(request):
     add = Customer.objects.filter(user=request.user)
     return render(request,'address.html',{'add':add})
@@ -237,20 +266,33 @@ def checkout(request):
             tempamount = (p.quantity * p.product.price)
             amount += tempamount
         totalamount = amount + shipping_amount
-
-    return render(request,'checkout.html',{'add':add,'totalamount':totalamount,'cart_items':cart_items})
+    res = {}
+    res['form1'] = CustomeruserForm(instance = request.user)
+    if  profile.objects.filter(user=request.user.id).exists():
+        res['form'] = CustomerProfileForm(instance=profile.objects.filter(user=request.user.id)[0])
+    else:
+        res['form'] = CustomerProfileForm(initial={'user':request.user})
+    return render(request,'checkout.html',{'add':add,'totalamount':totalamount,'cart_items':cart_items}|res)
 
 def paymentdone(request):
     user=request.user
     if request.method == "POST":
-        custid = request.POST['custid']
-        customer = Customer.objects.get(id=custid)
+        custid = request.user.email
+        customer = request.user.id
         cart = Cart.objects.filter(user=user)
+        email =request.POST.get('email')
+        first_name =request.POST.get('first_name')
+        last_name =request.POST.get('last_name')
+        state =request.POST.get('state')
+        city =request.POST.get('city')
+        address =request.POST.get('address')
+        zip =request.POST.get('zip')
         total = 0
         for c in cart:
-            order = OrderPlaced.objects.create(user=user, customer=customer, product=c.product, quantity=c.quantity,price=c.product.price)
+            order = OrderPlaced.objects.create(user=user, product=c.product, quantity=c.quantity,price=c.product.price)
             total+= (c.product.price * c.quantity)
             order.save()
+            orderaddress(order = order,first_name=first_name,last_name=last_name,state=state,city=city,address=address,zip=zip).save()
             c.delete()
         param_dict={
 
@@ -334,16 +376,22 @@ def minuscart(request,id):
 def buynow(request,id):
     prod = Product.objects.filter(id=id)
     if request.method=="POST":
-        custid = request.POST['custid']
-        customer = Customer.objects.get(id=custid)
-        order = OrderPlaced.objects.create(user=request.user, customer=customer, product=prod[0], quantity=1,price=prod[0].price)
+        email =request.POST.get('email')
+        first_name =request.POST.get('first_name')
+        last_name =request.POST.get('last_name')
+        state =request.POST.get('state')
+        city =request.POST.get('city')
+        address =request.POST.get('address')
+        zip =request.POST.get('zip')
+        order = OrderPlaced.objects.create(user=request.user, product=prod[0], quantity=1,price=prod[0].price)
+        orderaddress(order = order,first_name=first_name,last_name=last_name,state=state,city=city,address=address,zip=zip).save()
         total = (prod[0].price * 1)
         order.save()
         param_dict={
             'MID': 'yUvqPZ56033952526905',
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
-            'CUST_ID': custid,
+            'CUST_ID': request.user.email,
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
@@ -353,5 +401,11 @@ def buynow(request,id):
         # param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         return  render(request, 'paytm/paytm.html', {'param_dict': param_dict})
     add = Customer.objects.filter(user=request.user)
-    return render(request,'checkout.html',{'cartitems':prod,'totalamount':prod[0].price,'add':add,'buynow':True})
+    res = {}
+    res['form1'] = CustomeruserForm(instance = request.user)
+    if  profile.objects.filter(user=request.user.id).exists():
+        res['form'] = CustomerProfileForm(instance=profile.objects.filter(user=request.user.id)[0])
+    else:
+        res['form'] = CustomerProfileForm(initial={'user':request.user})
+    return render(request,'checkout.html',{'cartitems':prod,'totalamount':prod[0].price,'add':add,'buynow':True}|res)
     

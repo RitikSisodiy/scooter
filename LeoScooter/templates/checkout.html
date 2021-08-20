@@ -16,7 +16,7 @@
     <!--Product Details Start-->
         <div class="container py-24">
             <div class="row mt-5">
-                <div class="col-sm-6">
+                <div class="col-sm-10 container">
                     <h4>Order Summary</h4>
                     <hr>
                     {% for item in cart_items %}
@@ -33,28 +33,17 @@
                         saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam,
                         accusantium adipisci nisi nihil in et quis?</small>
                 </div>
-                <div class="col-sm-4 offset-sm-1">
+                <div class="col-sm-10 container my-5">
                     <h4>Select Shipping Address</h4>
                     <hr>
                     <form action="" method="POST">
                         {% csrf_token %}
-                        {% for ad in add %}
-                        <div class="card">
-                            <div class="card-body">
-                                <h5>{{ad.name}}</h5>
-                                <p>{{ad.locality}}, {{ad.city}}, {{ad.zipcode}}</p>
-                            </div>
-                        </div>
-                        <div class="form-check mt-2 mb-5">
-                            <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}" required>
-                            <label class="form-check-label fw-bold" for="">
-                                Address: {{forloop.counter}} </label>
-                        </div>
-                        {% endfor %}
-                        
+                        {{form1.as_p}}
+                        {{form.as_p}}
+                       
                         <div class="row ">
                         <div class="text-end">
-                            <button type="" class="btn btn-warning mt-3 px-5 fw-bold " {% if add %}{% else %}disabled {% endif %}>Continue</button>
+                            <button type="" class="btn btn-warning mt-3 px-5 fw-bold ">Continue</button>
                         </div>
                         <div class="text-end">
                             <a href = "{% url "editprofile" %}?next={{request.get_full_path}}" class="btn btn-warning mt-3 px-5 fw-bold" >Add Address</a>

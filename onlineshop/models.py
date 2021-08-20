@@ -5,7 +5,12 @@ from django.db.models.base import Model
 import json
 
 # Create your models here.
-
+class profile(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    state = models.CharField(max_length=500)
+    city = models.CharField(max_length=50)
+    address = models.CharField(max_length=500)
+    zip = models.CharField(max_length=10)
 class Customer(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200, null=True)
@@ -75,7 +80,6 @@ STATUS_CHOICE = (
 class OrderPlaced(models.Model):
     order_id = models.CharField(unique=True, max_length=100, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     quantity = models.PositiveBigIntegerField(default=1)
     price = models.FloatField(blank=True,max_length=100)
@@ -86,7 +90,14 @@ class OrderPlaced(models.Model):
         if self.order_id is None and self.order_date and self.id:
             self.order_id = self.order_date.strftime('PAY2ME%Y%m%dODR') + str(self.id)
         return super().save(*args, **kwargs)
-
+class orderaddress(models.Model):
+    order = models.OneToOneField(OrderPlaced,on_delete=models.CASCADE,related_name="address") 
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    zip = models.CharField(max_length=100)
 
 class TestDrive(models.Model):
     name = models.CharField(max_length=50)

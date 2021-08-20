@@ -1,0 +1,20 @@
+{% extends 'userbasic.html' %}
+
+{% block udbody %}
+ <h2 class="title">Change Password</h2>
+<form action="{% url "editpass" %}" method="post" enctype="multipart/form-data" novalidate="novalidate">{% csrf_token %}
+<div class="form-group">
+        <label for="old_password">Old Password</label>
+        <input type="password" style="height: 40px; width: 100%; " class="form-control" id="old_password" name="old_password" placeholder="Old Password">
+    </div>
+    <div class="form-group">
+        <label for="password">New Password</label>
+        <input type="password" style="height: 40px; width: 100%; " class="form-control" id="password" name="password" placeholder="New Password">
+    </div>
+    <div class="form-group">
+        <label for="password_confirmation">Confirm Password</label>
+        <input type="password" style="height: 40px; width: 100%; " class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password">
+    </div>
+    <button type="submit" class="btn-medheal dash-btn width-200 btn-small">Save changes</button>
+</form>
+{% endblock %}

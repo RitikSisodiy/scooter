@@ -2,6 +2,7 @@
 
 {% block udbody %}
  <form action="{% url 'profile' %}?next={{request.GET.next}}" method="post">{% csrf_token %} 
+                                      {{form1.as_p}}
                                       {{form.as_p}}
                                       
                                       

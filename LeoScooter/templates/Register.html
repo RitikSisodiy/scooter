@@ -37,7 +37,7 @@ color: #fff;
 {% block body %}        
         <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto" style="margin-top: 80px;">
         	{% for message in messages %}
-                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
                         <strong>Message: </strong> {{ message}}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span
@@ -50,32 +50,51 @@ color: #fff;
                         <img src="{% static 'images/h2.jpg' %}" alt="" class="img-fluid">
                     </div>
                     <div class="col-lg-6 my-10   px-5 px-lg-5">
-						 <form action="" method="POST">
+						 <form action="" method="POST" >
                           {% csrf_token %}
+                        {% if form.errors %}
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
                           <div class="flex mb-4">
                           <div class="w-1/2 ml-1">
                                   <label class="block text-grey-darker text-sm font-bold mb-2" for="username">Username</label>
-                                  <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="username" type="text" name="username" placeholder="username" required>
+                                  {{form.username}}
                               </div>
                               <div class="w-1/2 mr-1 mx-2">
                                   <label class="block text-grey-darker text-sm font-bold mb-2" for="first_name">First Name</label>
-                                  <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="first_name" type="text" name="first_name" placeholder="Your first name" required>
+                                  {{form.first_name}}
                               </div>
                               <div class="w-1/2">
                                   <label class="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label>
-                                  <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="last_name" type="text" name="last_name" placeholder="Your last name" required>
+                                  {{form.last_name}} 
                               </div>
                           </div>
                           <div class="mb-4">
                               <label class="block text-grey-darker text-sm font-bold mb-2" for="email">Email Address</label>
-                              <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="email" name="email" placeholder="Your email address" required>
+                              {{form.email}} 
                           </div>
                           <div class="mb-4">
                               <label class="block text-grey-darker text-sm font-bold mb-2" for="password">Password</label>
-                              <input class="appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="password" type="password" name="password" placeholder="Your secure password" required >
+                              {{form.password1}} 
                               <p class="text-grey text-xs mt-1">At least 6 characters</p>
-                          </div>
-                                  <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">SignUp</button> </div>
+                          </div> 
+                         <div class="mb-4">
+                              <label class="block text-grey-darker text-sm font-bold mb-2" for="password">Confirm Password</label>
+                               {{form.password2}} 
+                              <p class="text-grey text-xs mt-1">At least 6 characters</p>
+                          </div> 
+                        <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">SignUp</button> </div>
 
                         <div class="row mb-4 px-3"> <small class="font-weight-bold">Have an account? .<a class="text-danger" href="{% url 'userlogin' %}"	>&nbsp SignIn</a></small> </div>
                           </form>

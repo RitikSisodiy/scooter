@@ -16,7 +16,7 @@ class CartModelAdmin(admin.ModelAdmin):
 
 @admin.register(OrderPlaced)
 class OrderPlacedModelAdmin(admin.ModelAdmin):
-    list_display= ('order_id','user','customer','product', 'quantity','order_date','status')
+    list_display= ('order_id','user','product', 'quantity','order_date','status')
 
 @admin.register(TestDrive)
 class TestDriveAdmin(admin.ModelAdmin):
@@ -31,3 +31,9 @@ class prodimgAdmin(admin.ModelAdmin):
 @admin.register(specs)
 class specsAdmin(admin.ModelAdmin):
     list_display = ('id','Product','listele')
+@admin.register(profile)
+class profileAdmin(admin.ModelAdmin):
+    list_display = ('id','user','city')
+@admin.register(orderaddress)
+class orderaddressAdmin(admin.ModelAdmin):
+    list_display = ('order','city',)

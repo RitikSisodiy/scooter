@@ -1,29 +1,11 @@
 {% extends 'basic.html' %}
 {% load static %}
-    {% block style %}<link rel="stylesheet" href="{% static 'css/style2.css' %}">{% endblock %}
+    {% block style %}<link rel="stylesheet" href="{% static 'css/style.css' %}">{% endblock %}
 
 {% block body %}
-        <div class="dashboard-page">
+        <div class="dashboard-page my-5" >
 
-            <body data-new-gr-c-s-check-loaded="14.1024.0" data-gr-ext-installed="">
-
-                <div class="breadcrumb-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="breadcrumb-inner">
-                                    <h2 class="page-title"> User Dashboard
-                                    </h2>
-                                    <ul class="page-list">
-                                        <li><a href="http://foundation.cyberflax.com/sequael">Home</a>/</li>
-                                        <li> User Dashboard
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+           
                 <section class="login-page-wrapper">
                     <div class="container">
                         <div class="row">
@@ -42,9 +24,14 @@
                                             <a class="nav-link {% if request.path == userorder %}active{% endif %} " href="{{userorder}}">Product
                                                 Orders</a>
                                         </li>
+                                        {% url 'editprofile' as editprofile %}
                                         <li class="nav-item">
-                                            <a class="nav-link  " href="{% url 'editprofile' %}">Edit
+                                            <a class="nav-link {% if request.path == editprofile %}active{% endif %}" href="{{editprofile}}">Edit
                                                 Profile</a>
+                                        </li>
+                                         {% url 'editpass' as editpass %}
+                                        <li class="nav-item">
+                                            <a class="nav-link {% if request.path == editpass %}active{% endif %}" href="{{editpass}}">Change Password</a>
                                         </li>
                                         {% comment %} <li class="nav-item">
                                             <a class="nav-link  " href="">Change
@@ -65,6 +52,15 @@
                                         </li>
                                     </ul>
                                     <div class="tab-content" style="width: 100%; overflow:auto; max-height:60vh;">
+                                    	{% for message in messages %}
+                    <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                        <strong>Message: </strong> {{ message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span
+                        </button>
+                    </div>
+             {% endfor %}
+
                                         {% block udbody %}{% endblock %}
                                     </div>
                                 </div>
