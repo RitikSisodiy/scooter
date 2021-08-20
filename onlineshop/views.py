@@ -272,7 +272,7 @@ def checkout(request):
         res['form'] = CustomerProfileForm(instance=profile.objects.filter(user=request.user.id)[0])
     else:
         res['form'] = CustomerProfileForm(initial={'user':request.user})
-    return render(request,'checkout.html',{'add':add,'totalamount':totalamount,'cart_items':cart_items}|res)
+    return render(request,'checkout.html',{'add':add,'totalamount':totalamount,'cart_items':cart_items,'form':res['form'],'form1':res['form1']})
 
 def paymentdone(request):
     user=request.user
@@ -407,5 +407,5 @@ def buynow(request,id):
         res['form'] = CustomerProfileForm(instance=profile.objects.filter(user=request.user.id)[0])
     else:
         res['form'] = CustomerProfileForm(initial={'user':request.user})
-    return render(request,'checkout.html',{'cartitems':prod,'totalamount':prod[0].price,'add':add,'buynow':True}|res)
+    return render(request,'checkout.html',{'cartitems':prod,'totalamount':prod[0].price,'add':add,'buynow':True,'form':res['form'],'form1':res['form1']})
     
