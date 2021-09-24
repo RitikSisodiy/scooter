@@ -303,7 +303,7 @@ def paymentdone(request):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'http://'+request.get_host()+'/handlerequest/',
+            'CALLBACK_URL':'https://'+request.get_host()+'/handlerequest/',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generateSignature(param_dict, MERCHANT_KEY)
         # param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
@@ -395,7 +395,7 @@ def buynow(request,id):
             'INDUSTRY_TYPE_ID': 'Retail',
             'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'http://'+request.get_host()+'/handlerequest/',
+            'CALLBACK_URL':'https://'+request.get_host()+'/handlerequest/',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generateSignature(param_dict, MERCHANT_KEY)
         # param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
