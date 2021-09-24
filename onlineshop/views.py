@@ -107,7 +107,7 @@ def register(request):
         # return render(request,'user_login.html',{'cls':cls, 'msg':msg})
             messages.success(request,'your account is created successfully')
             return redirect('userlogin')
-    return render(request,'Register.html',{'form':form,'form1':form1})
+    return render(request,'Register.html',{'form':form,'form1':form})
 
 # class CustomerRegistrationView(View):
 #     def get(self, request):
