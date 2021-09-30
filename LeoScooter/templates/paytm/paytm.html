@@ -6,7 +6,7 @@
 <center>
          <h1>Please do not refresh this page...</h1>
       </center>
-      <form method="post" action="https://securegw-stage.paytm.in/theia/processTransaction" name="paytm">
+      <form method="post" action="https://securegw.paytm.in/theia/api/v1/processTransaction?mid={{param_dict.MID}}&orderId={{param_dict.ORDER_ID}}" name="paytm">
          <table border="1">
             <tbody>
              {% for key,value in param_dict.items %}

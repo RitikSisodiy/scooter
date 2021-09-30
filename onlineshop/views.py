@@ -21,7 +21,7 @@ import json
 import string
 import random
 from django.contrib.auth.decorators import login_required
-MERCHANT_KEY='ey1DQFRPXypAmeE3'
+MERCHANT_KEY='a1Q7vq@5Q#PvFVc@'
 
 # Create your views here.
 
@@ -123,6 +123,8 @@ def register(request):
 
 
 def userlogin(request):
+    if request.user.is_authenticated:
+        return redirect('profile')
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -136,7 +138,7 @@ def userlogin(request):
                 return redirect('dashboardindex')
             if request.GET.get('next') is not None:
                 return redirect(request.GET.get('next'))
-            return redirect('index')
+            return redirect('profile')
         else:
             messages.error(request, "invalid credentials, please try again")
             return redirect('userlogin')
@@ -296,14 +298,14 @@ def paymentdone(request):
             c.delete()
         param_dict={
 
-            'MID': 'yUvqPZ56033952526905',
+            'MID': 'TaFiEU45447912471030',
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
             'CUST_ID': custid,
             'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'WEBSTAGING',
+            'WEBSITE': 'DEFAULT',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'https://'+request.get_host()+'/handlerequest/',
+            'CALLBACK_URL':'http://'+request.get_host()+'/handlerequest/',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generateSignature(param_dict, MERCHANT_KEY)
         # param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
@@ -388,14 +390,14 @@ def buynow(request,id):
         total = (prod[0].price * 1)
         order.save()
         param_dict={
-            'MID': 'yUvqPZ56033952526905',
+            'MID': 'TaFiEU45447912471030',
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
             'CUST_ID': request.user.email,
             'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'WEBSTAGING',
+            'WEBSITE': 'DEFAULT',
             'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'https://'+request.get_host()+'/handlerequest/',
+            'CALLBACK_URL':'http://'+request.get_host()+'/handlerequest/',
         }
         param_dict['CHECKSUMHASH'] = Checksum.generateSignature(param_dict, MERCHANT_KEY)
         # param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
