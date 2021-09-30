@@ -298,7 +298,7 @@ def paymentdone(request):
             c.delete()
         param_dict={
 
-            'MID': mid,
+            'MID': "yUvqPZ56033952526905",
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
             'CUST_ID': custid,
@@ -390,7 +390,7 @@ def buynow(request,id):
         total = (prod[0].price * 1)
         order.save()
         param_dict={
-            'MID': mid,
+            'MID': "yUvqPZ56033952526905",
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
             'CUST_ID': request.user.email,
