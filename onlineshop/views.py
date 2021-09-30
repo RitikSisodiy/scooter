@@ -53,9 +53,9 @@ def contact(request):
         from_email = settings.EMAIL_HOST_USER
         to = 'surajnaithani70@gmail.com'
         send_mail(subject, plain_message, from_email,[to],
-        fail_silently=False,
+        fail_silently=True,
         )
-        message = "Thank you!"
+        message = "Thanks For Contacting Us We Will Get Back To You Soon :)"
     return render(request,'contact.html',{"msg": message})
 
 def products(request):
