@@ -21,8 +21,8 @@ import json
 import string
 import random
 from django.contrib.auth.decorators import login_required
-MERCHANT_KEY='a1Q7vq@5Q#PvFVc@'
-
+MERCHANT_KEY='ey1DQFRPXypAmeE3'
+mid = "yUvqPZ56033952526905"
 # Create your views here.
 
 def index(request):
@@ -298,12 +298,12 @@ def paymentdone(request):
             c.delete()
         param_dict={
 
-            'MID': 'TaFiEU45447912471030',
+            'MID': mid,
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
             'CUST_ID': custid,
             'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'DEFAULT',
+            'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
             'CALLBACK_URL':'http://'+request.get_host()+'/handlerequest/',
         }
@@ -326,7 +326,7 @@ def handlerequest(request):
     if verify:
         orderob = OrderPlaced.objects.get(order_id=response_dict['ORDERID'])
         if response_dict['RESPCODE'] == '01':
-            print('order successful')
+            print('order successful')   
             orderob.status = "Accepted"
             orderob.save()
         else:
@@ -390,12 +390,12 @@ def buynow(request,id):
         total = (prod[0].price * 1)
         order.save()
         param_dict={
-            'MID': 'TaFiEU45447912471030',
+            'MID': mid,
             'ORDER_ID': str(order.order_id),
             'TXN_AMOUNT': str(total),
             'CUST_ID': request.user.email,
             'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'DEFAULT',
+            'WEBSITE': 'WEBSTAGING',
             'CHANNEL_ID': 'WEB',
             'CALLBACK_URL':'http://'+request.get_host()+'/handlerequest/',
         }
