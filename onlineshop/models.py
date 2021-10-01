@@ -125,3 +125,7 @@ class test(models.Model):
     def save(self, *args, **kwargs):
         self.testfield = json.dumps(self.testfield)
         return super().save(*args, **kwargs)
+class contactinfo(models.Model):
+    phone = models.CharField(max_length=13)
+    email = models.EmailField()
+    address = models.TextField()

@@ -173,7 +173,7 @@
         
         {% endblock %}
         <!--footer Start-->
-        <a style="position:fixed;bottom:5px;right:5px;margin:0;" class="btn" href="tel:18005722339"><i class="bi bi-telephone-inbound"></i>Call us</a>
+        <a style="position:fixed;bottom:5px;right:5px;margin:0;" class="btn" href="tel:{{info.0.phone}}"><i class="bi bi-telephone-inbound"></i>Call us</a>
         <footer class="site-footer">
             <div class="footer-widget-area">
                 <div class="container">
@@ -212,17 +212,17 @@
                                     <div class="widget-contact-info">
                                         <i class="fas fa-phone"></i>
                                         <h3>Phone</h3>
-                                        <span><a>18005722339</a></span>
+                                        <span><a>{{info.0.phone}}</a></span>
                                     </div>
                                     <div class="widget-contact-info">
                                         <i class="fas fa-envelope-open"></i>
                                         <h3>Email</h3>
-                                        <span><a>info@leoelectric.in</a></span>
+                                        <span><a>{{info.0.email}}</a></span>
                                     </div>
                                     <div class="widget-contact-info">
                                         <i class="fas fa-map-marker-alt"></i>
                                         <h3>Address</h3>
-                                        <span>Plot No. 157 / 4 / 9,<br> 1st Floor, Kishangarh, Vasant Kunj,<br> Delhi - 110070 <br> Landmark: Ambience Tower.</span>
+                                        <span>{{info.0.address|linebreaks}}</span>
                                     </div>
                                 </div>
                             </div>

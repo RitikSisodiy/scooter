@@ -37,3 +37,6 @@ class profileAdmin(admin.ModelAdmin):
 @admin.register(orderaddress)
 class orderaddressAdmin(admin.ModelAdmin):
     list_display = ('order','city',)
+@admin.register(contactinfo)
+class contactinfoAdmin(admin.ModelAdmin):
+    list_display = ('phone','email','address')
