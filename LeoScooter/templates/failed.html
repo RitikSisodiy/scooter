@@ -1,0 +1,130 @@
+{% extends 'basic.html' %}
+{% block body %}
+<style>
+    .row{
+        -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    --mm-line-height: 20px;
+    --mm-listitem-size: 44px;
+    --mm-navbar-size: 44px;
+    --mm-offset-top: 0;
+    --mm-offset-right: 0;
+    --mm-offset-bottom: 0;
+    --mm-offset-left: 0;
+    --mm-color-border: rgba(0, 0, 0, 0.1);
+    --mm-color-button: rgba(0, 0, 0, 0.3);
+    --mm-color-text: rgba(0, 0, 0, 0.75);
+    --mm-color-text-dimmed: rgba(0, 0, 0, 0.3);
+    --mm-color-background: #f3f3f3;
+    --mm-color-background-highlight: rgba(0, 0, 0, 0.05);
+    --mm-color-background-emphasis: rgba(255, 255, 255, 0.4);
+    --mm-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #707070;
+    font-size: 15px;
+    line-height: 28px;
+    font-family: 'Nunito', sans-serif;
+    text-transform: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-left: -15px;
+    margin-right: -15px;
+    }
+
+    .utf_booking_listing_confirmation_section{
+        -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    --mm-line-height: 20px;
+    --mm-listitem-size: 44px;
+    --mm-navbar-size: 44px;
+    --mm-offset-top: 0;
+    --mm-offset-right: 0;
+    --mm-offset-bottom: 0;
+    --mm-offset-left: 0;
+    --mm-color-border: rgba(0, 0, 0, 0.1);
+    --mm-color-button: rgba(0, 0, 0, 0.3);
+    --mm-color-text: rgba(0, 0, 0, 0.75);
+    --mm-color-text-dimmed: rgba(0, 0, 0, 0.3);
+    --mm-color-background: #f3f3f3;
+    --mm-color-background-highlight: rgba(0, 0, 0, 0.05);
+    --mm-color-background-emphasis: rgba(255, 255, 255, 0.4);
+    --mm-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: #707070;
+    font-size: 15px;
+    line-height: 28px;
+    font-family: 'Nunito', sans-serif;
+    text-transform: none;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    padding: 50px 30px;
+    transform: translate3d(0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    text-align: center;
+    }
+
+    .bi-x-octagon-fill{
+        -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    --mm-line-height: 20px;
+    --mm-listitem-size: 44px;
+    --mm-navbar-size: 44px;
+    --mm-offset-top: 0;
+    --mm-offset-right: 0;
+    --mm-offset-bottom: 0;
+    --mm-offset-left: 0;
+    --mm-color-border: rgba(0, 0, 0, 0.1);
+    --mm-color-button: rgba(0, 0, 0, 0.3);
+    --mm-color-text: rgba(0, 0, 0, 0.75);
+    --mm-color-text-dimmed: rgba(0, 0, 0, 0.3);
+    --mm-color-background: #f3f3f3;
+    --mm-color-background-highlight: rgba(0, 0, 0, 0.05);
+    --mm-color-background-emphasis: rgba(255, 255, 255, 0.4);
+    --mm-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'simple-line-icons'!important;
+    speak: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    color: #ff1d1d;
+    font-size: 140px;
+    margin-bottom: 20px;
+    display: inline-block;
+    font-weight: 800;
+    }
+</style>
+<div id="titlebar" class="gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Listing Booking</h2>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="my-5"></div>
+<div class="container">
+<div class="row ">
+    <div class="col-md-12 ">
+      <div class="utf_booking_listing_confirmation_section shadow-lg p-3 mb-5 bg-white rounded"> 
+        <i class="bi bi-x-octagon-fill"></i>
+        <h2>your payment is failed due to some technicle error
+            
+            <br>
+            if your payment is deducted please wait for 48 hour bank will refund you back
+            !</h2>
+        <p>You'll receive a confirmation email <a href="#">info@example.com</a></p>
+        <a href="dashboard_invoice.html" class="button margin-top-30">Check Invoice</a> 
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

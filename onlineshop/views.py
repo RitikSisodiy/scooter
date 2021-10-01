@@ -410,4 +410,8 @@ def buynow(request,id):
     else:
         res['form'] = CustomerProfileForm(initial={'user':request.user})
     return render(request,'checkout.html',{'cartitems':prod,'totalamount':prod[0].price,'add':add,'buynow':True,'form':res['form'],'form1':res['form1']})
-    
+def thankyou(request):
+    return render(request,'thankyou.html',{})
+
+def failed(request):
+    return render(request,'failed.html',{})
