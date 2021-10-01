@@ -329,11 +329,15 @@ def handlerequest(request):
             print('order successful')   
             orderob.status = "Accepted"
             orderob.save()
+            return render(request,'thankyou.html', {'response':response_dict})
         else:
             orderob.status = "Cancel"
             orderob.save()
             print('order was not successful because' + response_dict['RESPMSG'])
-    return render(request, 'paytm/paymentstatus.html', {'response': response_dict})
+            return render(request,'failed.html', {'response':response_dict})
+
+    else:
+        return render(request, 'failed.html', {'response': response_dict})
     
 
 def orders(request):

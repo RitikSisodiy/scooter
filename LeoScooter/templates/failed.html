@@ -121,8 +121,10 @@
             <br>
             if your payment is deducted please wait for 48 hour bank will refund you back
             !</h2>
+            <p>Your Order is failed : {{response.RESPMSG}}</p>
+            <p>Your order id : {{response.ORDERID}}</p>
         <p>You'll receive a confirmation email <a href="#">info@example.com</a></p>
-        <a href="dashboard_invoice.html" class="button margin-top-30">Check Invoice</a> 
+        <a href="{% url 'userorders' %}" class="button margin-top-30">Check orders</a> 
       </div>
     </div>
   </div>

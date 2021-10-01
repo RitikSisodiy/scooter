@@ -117,8 +117,10 @@
       <div class="utf_booking_listing_confirmation_section shadow-lg p-3 mb-5 bg-white rounded"> 
         <i class="bi bi-check2-circle"></i>
         <h2>Thanks for your Booking!</h2>
+        <p>{{response.RESPMSG}}</p>
+        <p>Your order id : {{response.ORDERID}}</p>
         <p>You'll receive a confirmation email <a href="#">info@example.com</a></p>
-        <a href="dashboard_invoice.html" class="button margin-top-30">Check Invoice</a> 
+        <a href="{% url 'userorders' %}" class="button margin-top-30">Check Orders</a> 
       </div>
     </div>
   </div>
