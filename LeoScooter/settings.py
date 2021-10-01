@@ -156,7 +156,7 @@ JET_THEMES = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'asia/kolkata'
+TIME_ZONE = 'Asia/kolkata'
 
 USE_I18N = True
 
