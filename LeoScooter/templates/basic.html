@@ -122,6 +122,8 @@
                         <a href="/" title="Wheels Car">
                             <img src="{% static 'images/EVEX_LOGO_Nav.png' %}" style="height: 40px; width: auto;" alt="car"
                                 class="regular-logo">
+                            <img src="{% static 'images/EVEX_LOGO_Nav.png' %}" style="height: 40px; width: auto;" alt="car"
+                                class="sticky-logo">
                         </a>
                         <div class="menu-icon">
                             <span class="top"></span>
@@ -237,8 +239,7 @@
     </div>
     <!--Main Wrapper End-->
     <!-- Vendor -->
-    <!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/cascading-select.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
@@ -251,20 +252,9 @@
         $(function () {
             $(".before-after-car-container[data-orientation!='vertical']").twentytwenty({ default_offset_pct: 0.7 });
         });
-        if($(window).width() < 991){
-      jQuery('.menu-icon').on("click", function() {
-        jQuery(this).toggleClass('active');
-        jQuery('body').toggleClass('menu-open');
-        jQuery('nav ul li a').on("click", function(){
-          jQuery('.menu-icon').removeClass('active');
-          jQuery('body').removeClass('menu-open');
-        });
-      });
-    }
     </script>
+    <!-- Theme Base, Components and Settings -->
     <script src="{% static 'js/theme.js' %}"></script>
-
-  
 
     <!-- Theme Custom -->
     <script src="{% static 'js/custom.html' %}"></script>
@@ -273,14 +263,12 @@
             jQuery('.hero-section').addClass('start-animation');
         });
         var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {
- $(".slideritem").attr('style',"width:100%")
- $('#sliderbike').css("margin-left","2%")
-}
+        if (isMobile) {
+        $(".slideritem").attr('style',"width:100%")
+        $('#sliderbike').css("margin-left","2%")
+        }
     </script>
     <!-- Theme Base, Components and Settings -->
-   
-
     <!-- Theme Custom -->
     <script src="js/custom.html"></script>
     <script type="text/javascript">
