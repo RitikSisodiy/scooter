@@ -49,10 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'LeoScooter',
     'onlineshop',
     'superuser',
 ]
+
+JET_CHANGE_FORM_SIBLING_LINKS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

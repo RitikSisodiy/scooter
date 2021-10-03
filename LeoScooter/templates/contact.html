@@ -26,22 +26,21 @@
                                         class="right d-flex   flex-column">
                                         <div class="contact-list"
                                             style=" line-height: 50px ;color: #052b5a; font-size: 17px; width: 70%;">
-                                            <i class="fa fa-phone" style="transform: scaleX(-1);"></i> 180080080
+                                            <i class="fa fa-phone" style="transform: scaleX(-1);"></i>{{info.0.phone}}
                                         </div>
                                         <div class="contact-list"
                                             style=" line-height: 50px ;color: #052b5a; font-size: 17px; width: 70%;">
-                                            <i class="fa fa-envelope"></i> someone@info.com
+                                            <i class="fa fa-envelope"></i> {{info.0.email}}
                                         </div>
                                         <div class="contact-list"
                                             style=" line-height: 50px ;color: #052b5a; font-size: 17px; width: 70%;">
-                                            <i class="fa fa-map-marker-alt"></i> Plot No. 157 / 4 / 9,
-                                            1st Floor, Kishangarh, Vasant Kunj,
+                                            <i class="fa fa-map-marker-alt"></i> {{info.0.address}}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="btn-wrapper">
-                                <a href="#" class="btn btn-primary has-icon"><span>CyberFlax@EVEXelectric.in</span></a>
+                                <a href="mailto: {{info.0.email}}" class="btn btn-primary has-icon"><span>{{info.0.email}}</span></a>
                             </div>
                         </div>
                     </div>

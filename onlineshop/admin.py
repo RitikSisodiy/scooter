@@ -1,5 +1,12 @@
 from django.contrib import admin
 from . models import *
+from django.contrib.admin import AdminSite
+from django.utils.translation import ugettext_lazy
+
+admin.site.site_header = 'EVEX administration'
+admin.site.site_title = 'EVEX site admin'
+admin.site.site_header = 'EVEX administration'
+
 
 # Register your models here.
 @admin.register(Customer)
