@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
 from django.db.models.base import Model
+from ckeditor.fields import RichTextField
 import json
 
 # Create your models here.
@@ -31,7 +32,7 @@ class Product(models.Model):
 	ActualPrice = models.FloatField()
 	color = models.CharField(max_length=20,default='', blank=True)
 	category = models.CharField(max_length=50,default='', blank=True)
-	description = models.TextField(max_length=500)
+	description = RichTextField(max_length=500)
 	image = models.ImageField(upload_to="img",default ="")
 
 	def __str__(self):
@@ -72,9 +73,10 @@ class Cart(models.Model):
 STATUS_CHOICE = (
     ('Accepted','Accepted'),
     ('Packed','Packed'),
-    ('On The Way','On The Way'),
+    ('On-The-Way','On The Way'),
     ('Delivered','Delivered'),
-    ('Cancel','Cancel')
+    ('Cancel','Cancel'),
+    ('pending','pending'),
 )
 
 class OrderPlaced(models.Model):
@@ -107,6 +109,7 @@ class TestDrive(models.Model):
     address = models.CharField(max_length=100)
     zipcode = models.IntegerField()
     question = models.CharField(max_length=100)
+    time = models.DateTimeField(auto_now=True)
 
 
 class Contact(models.Model):
@@ -115,6 +118,7 @@ class Contact(models.Model):
     phone = models.IntegerField()
     sub = models.CharField(max_length=500)
     question = models.CharField(max_length=500)
+    time = models.DateTimeField(auto_now=True)
 
 class test(models.Model):
     testfield = models.CharField(max_length=50000)

@@ -17,6 +17,7 @@ from django.views import View
 from . forms import *
 from django.views.decorators.csrf import csrf_exempt
 from paytm import Checksum
+from superuser.models import about as aboutModel
 import json
 import string
 import random
@@ -31,7 +32,10 @@ def index(request):
     return render(request,'index.html',context)
 
 def about(request):
-    return render(request,'about.html')
+    res = {}
+    abdata = aboutModel.objects.all()
+    res['about'] = abdata[0] if abdata.exists() else None
+    return render(request,'about.html',res)
 
 def careers(request):
     return render(request,'careers.html')

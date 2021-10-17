@@ -42,6 +42,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
     'jet',
     'LeoScooter',
     'django.contrib.admin',
@@ -86,7 +87,12 @@ TEMPLATES = [
     },
 ]
 WSGI_APPLICATION = 'LeoScooter.wsgi.application'
-
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'width':'100%'
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -176,7 +182,7 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
+CKEDITOR_UPLOAD_PATH = "uploads/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PAYTM_MERCHANT_ID = '<your_merchant_id>'
