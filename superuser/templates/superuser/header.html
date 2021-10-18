@@ -18,6 +18,17 @@
                         Product</a></li>
             </ul>
         </li>
+         <li class="main_dropdown
+                            ">
+            <a href=" {% static 'javascript:void(0)' %} " aria-expanded="true"><i class="ti-user"></i>
+                <span>Users</span> <span class="badge">{{allusers.count}}</span></a>
+            <ul class="collapse">
+                <li class=""><a href=" {% url 'userslist' %} ">All Users </a>
+                </li>
+                <li class=""><a href=" {% url 'addproduct' task='add' %} ">Add New
+                        User</a></li>
+            </ul>
+        </li>
         <li class="main_dropdown
                             ">
             <a href="#" aria-expanded="true"><i class="ti-book"></i>

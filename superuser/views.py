@@ -153,3 +153,10 @@ def addorders(request,id=None):
         if res['form'].is_valid():
             res['form'].save()
     return render(request,'superuser/addorders.html',res)
+
+
+def users(request,slug=None):
+    res={}
+    if slug is  None:
+        res['users'] = User.objects.all()
+    return render(request,'superuser/users.html',res)

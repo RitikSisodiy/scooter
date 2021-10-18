@@ -19,4 +19,6 @@ urlpatterns = [
     path('orders/<slug:slug>', views.orders , name='catorders'),
     path('addorders/', views.addorders , name='addorders'),
     path('editorders/<int:id>', views.addorders , name='editorders'),
+    path('users/', views.users , name='userslist'),
+    path('users/<slug:slug>', views.users , name='viewuser'),
 ]
