@@ -13,6 +13,7 @@ django-render-block==0.8.1
 future==0.18.2
 html5lib==1.1
 idna==3.2
+mysqlclient
 Pillow==8.3.1
 pycparser==2.20
 PyJWT==1.7.1
