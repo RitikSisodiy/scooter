@@ -11,7 +11,9 @@
             {{form.media}}
             {{form.as_p}}
             <input type="submit" class="btn btn-primary my-3" />
+            {% if form.instance.product.id %}
             <a href='{% url "editproduct" id=form.instance.product.id task='edit' %}'  class="btn btn-secondary my-3" />View Product</a>
+            {% endif %}
     </div>
     </div>
 </div>
