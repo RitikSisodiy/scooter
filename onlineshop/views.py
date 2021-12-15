@@ -348,8 +348,8 @@ def orders(request):
     op = OrderPlaced.objects.filter(user=request.user)
     return render(request,'orders.html',{'order_placed':op})
 
-def productdetails(request,id):
-    products = Product.objects.get(pk=id)
+def productdetails(request,slug):
+    products = Product.objects.get(slug=slug)
     spec = specs.objects.filter(Product=products.id)
     return render(request,'ProductDetails.html',{'escooter':products,'specs':spec})
 
@@ -383,8 +383,8 @@ def minuscart(request,id):
     citem.save()
     return redirect('cart')
 @login_required(login_url="userlogin")
-def buynow(request,id):
-    prod = Product.objects.filter(id=id)
+def buynow(request,slug):
+    prod = Product.objects.filter(slug=slug)
     if request.method=="POST":
         email =request.POST.get('email')
         first_name =request.POST.get('first_name')

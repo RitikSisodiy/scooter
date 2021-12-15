@@ -9,10 +9,11 @@ from .forms import ProductForm,aboutForm,about,GenForm
 #add all app names you want to oprate in admin
 allapps = ['onlineshop',]
 def index(request):
-    res = []
+    res = {}
     # for app in allapps:
     #     res.append({app:apps.all_models[app]})
-    return render(request,'superuser/index.html',{'models':res})
+    res['latestorders'] = OrderPlaced.objects.all().order_by('-order_date')
+    return render(request,'superuser/index.html',res)
 def allproducts(request):
     prods = Product.objects.all()
     return render(request,'superuser/products.html',{'prods':prods,'title':"View Product"})

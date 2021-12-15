@@ -36,7 +36,19 @@
                     <td>{{data.quantity}} </td>
                     <td>{{data.price}}</td>
                     <td>{{data.order_date}}</td>
-                    <td>{{data.status}}</td>
+                    <td>
+                        {% if data.status == "Accepted" or data.status == "Delivered" %}
+                        <span class="alert alert-success">{{data.status}}</span>
+                        {% elif data.status == "Packed" %}
+                        <span class="alert alert-secondary">{{data.status}}</span>
+                        {% elif data.status == "On The Way" %}
+                        <span class="alert alert-info">{{data.status}}</spCancelan>
+                        {% elif data.status == "Cancel" %}
+                        <span class="alert alert-danger">{{data.status}}</spCancelan>
+                        {% elif data.status == "pending" %}
+                        <span class="alert alert-warning">{{data.status}}</spCancelan>
+                        {% endif %}
+                    </td>
                     <td><a href="{% url 'editorders' data.id %}" class='btn btn-sm btn-primary'><i class="bi bi-pencil-fill"></i></a></td>
                 </tr>
 

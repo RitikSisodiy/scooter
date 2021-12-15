@@ -35,9 +35,9 @@ urlpatterns = [
     path('userlogin/', views.userlogin,name='userlogin'),
     path('logout/', views.logout,name='logout'),
     path('base/', views.base,name='base'),
-    path('productdetails/<int:id>/', views.productdetails,name='productdetails'),
+    path('productdetails/<slug:slug>/', views.productdetails,name='productdetails'),
     path('getproddetails/', views.getproddetails,name='getproddetails'),
-    path('product/buynow/<int:id>', views.buynow,name='buynow'),
+    path('product/buynow/<slug:slug>', views.buynow,name='buynow'),
 
     path('reset_password/',
      auth_views.PasswordResetView.as_view(template_name="password_reset.html"),

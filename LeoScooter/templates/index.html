@@ -18,8 +18,9 @@
                 <div class="container double-top-padding double-bottom-padding height-100">
                     <div class="row">
                         <div class="col-md-12 banner-content text-center">
-                            <h2 class="top-sub-heading">EVEX Electric</h2>
-                            <h1 class="large-heading"><span>DRIVE THE FUTURE OF </span> EMOBILITY</h1>
+                            <h2 class="top-sub-heading">Evex India</h2>
+                            {% comment %} <h1 class="large-heading"><span>DRIVE THE FUTURE OF </span> EMOBILITY</h1> {% endcomment %}
+                            <h1 class="large-heading"><span>India's most Efficient  </span> Electric Vehical</h1>
                         </div>
                         <div class="animation-text"><span>S</span><span>P</span><span>R</span><span>I</span><span>N</span><span>T</span><span>+</span><span>+</span></div>
                     </div>
@@ -59,8 +60,8 @@
                         <div class="col-lg-8 col-md-12">
                             <div class="innovative-design-info">
                                 <div class="text-block">
-                                    <p>EVEX ELECTRIC Is a 100% Indian electric vehicles manufacturing company with a mission of balancing performance, range, driving comfort, guarantee of complete safety and affordability to build electric vehicles in the market with an aim to go green - go electric.</p>
-                                    <p>We are engaged in the manufacturing of Electric Vehicles .EVEX ELECTRIC is produced by using cutting edge technology; quality approved component and innovative ideas from our in-house RND. Further, we keep the diverse specifications, demands and details given by the clients in mind while developing the whole product range. EVEX is highly recommended for its user friendly nature, long battery backup, advance technology, low maintenance requirement, long functional life, smooth functioning, elegant look, perfect design, accurate dimension and many other features. We offer innovative ideas of our professionals. We are offering vehicle and battery warranty for our Vehicles. Most of the Vehicles components are made from in house and we are on the way to 100 % indigenous product.</p>
+                                    <p>Evex India Is a 100% Indian electric vehicles manufacturing company with a mission of balancing performance, range, driving comfort, guarantee of complete safety and affordability to build electric vehicles in the market with an aim to go green - go electric.</p>
+                                    <p>We are engaged in the manufacturing of Electric Vehicles .Evex India is produced by using cutting edge technology; quality approved component and innovative ideas from our in-house RND. Further, we keep the diverse specifications, demands and details given by the clients in mind while developing the whole product range. EVEX is highly recommended for its user friendly nature, long battery backup, advance technology, low maintenance requirement, long functional life, smooth functioning, elegant look, perfect design, accurate dimension and many other features. We offer innovative ideas of our professionals. We are offering vehicle and battery warranty for our Vehicles. Most of the Vehicles components are made from in house and we are on the way to 100 % indigenous product.</p>
                                 </div>
                                 <div class="btn-wrapper">
                                     <a href="{% url 'about' %}" class="btn btn-primary btn-accent has-icon"><span>Read More</span><i class="fas fa-arrow-right"></i></a>
@@ -234,7 +235,7 @@
                                     <button type="submit" style="width: 250px;" class="py-15 bg-gray-900 rounded-md text-sm">Add to Cart</button>
                                     </form> -->
                                     <div class="row col-12">
-                                        <div class="col-md-6 my-1 text-dark"><button type="submit" onclick="window.location.href='{% url 'productdetails' product.id %}'"  style="padding: 0px; width: 113%; font-size: 14px;" class="py-15 bg-gray-900 rounded-md text-sm">More Details</button></div>
+                                        <div class="col-md-6 my-1 text-dark"><button type="submit" onclick="window.location.href='{% url 'productdetails' product.slug %}'"  style="padding: 0px; width: 113%; font-size: 14px;" class="py-15 bg-gray-900 rounded-md text-sm">More Details</button></div>
                                         <div class="col-md-6 my-1 text-dark">
                                             <form action="/add_to_cart">
                                                 <input type="hidden"  name="prod_id"  value={{product.id}}>
@@ -317,7 +318,7 @@
                     <button type="submit" style="width: 250px;" class="py-15 bg-gray-900 rounded-md text-sm">Add to Cart</button>
                     </form> -->
                     <div class="row col-12 " style="    margin-top: 167px;">
-                        <div class="col-md-6 my-1 text-dark"><button type="submit" onclick="window.location.href='{% url "buynow" id=product.id %}'"  style="padding: 0px; width: 113%; font-size: 14px;" class="py-15 bg-gray-900 rounded-md text-sm">Buy Now</button></div>
+                        <div class="col-md-6 my-1 text-dark"><button type="submit" onclick="window.location.href='{% url "buynow" slug=product.slug %}'"  style="padding: 0px; width: 113%; font-size: 14px;" class="py-15 bg-gray-900 rounded-md text-sm">Buy Now</button></div>
                         <div class="col-md-6 my-1 text-dark">
                             <form action="/add_to_cart">
                                 <input type="hidden"  name="prod_id"  value={{product.id}}>
@@ -360,7 +361,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-wrapper text-center">
-                                <h2 class="large-heading text-uppercase"><span>Choose The</span>Color You Love</h2>
+                                <h2 class="large-heading text-uppercase"><span>select The</span>Color You Love</h2>
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,24 @@ from django.core.validators import MaxValueValidator,MinValueValidator
 from django.db.models.base import Model
 from ckeditor.fields import RichTextField
 import json
+import random ,string
+from django.utils.text import slugify
+def get_random_string(size):
+    return ''.join(random.choices(string.ascii_uppercase +
+                             string.digits, k = size))
 
+def unique_slug_generator(instance, new_slug=None):
+    """
+    This is for a Django project and it assumes your instance 
+    has a model with a slug field and a title character (char) field.
+    """
+    slug=slugify(new_slug)
+    Klass = instance
+    qs_exists = Klass.objects.filter(slug=slug).exists()
+    if qs_exists:
+        new_slug = slugify(str(slug)+get_random_string(4))
+        return unique_slug_generator(instance, new_slug=new_slug)
+    return slugify(slug)
 # Create your models here.
 class profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -25,18 +42,24 @@ class Customer(models.Model):
 		return str(self.id)
 
 class Product(models.Model):
-	name = models.CharField(max_length=200)
-	company = models.CharField(max_length=50,default="",blank=True)
-	original_price = models.FloatField(null=True,blank=True)
-	price = models.FloatField()
-	ActualPrice = models.FloatField()
-	color = models.CharField(max_length=20,default='', blank=True)
-	category = models.CharField(max_length=50,default='', blank=True)
-	description = RichTextField(max_length=500)
-	image = models.ImageField(upload_to="img",default ="")
+    name = models.CharField(max_length=200)
+    company = models.CharField(max_length=50,default="",blank=True)
+    original_price = models.FloatField(null=True,blank=True)
+    price = models.FloatField()
+    ActualPrice = models.FloatField()
+    color = models.CharField(max_length=20,default='', blank=True)
+    category = models.CharField(max_length=50,default='', blank=True)
+    description = RichTextField(max_length=500)
+    image = models.ImageField(upload_to="img",default ="")
+    slug = models.SlugField(blank=True)
 
-	def __str__(self):
-		return str(self.name +" ("+ self.color +")")
+    def __str__(self):
+        return str(self.name +" ("+ self.color +")")
+    def save(self, *args, **kwargs):
+        if len(self.slug)<1:
+            self.slug = unique_slug_generator(Product,self.name)
+        super(Product, self).save(*args, **kwargs)
+
 
 
 class specs(models.Model):
